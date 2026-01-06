@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   pipex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 13:41:11 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/06 11:08:22 by emaigne          ###   ########.fr       */
+/*   Created: 2026/01/06 10:45:08 by emaigne           #+#    #+#             */
+/*   Updated: 2026/01/06 10:45:28 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdbool.h>
-#include <unistd.h>
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **env)
+void	clearmatrix(char **tab)
 {
-	if (argc != 5)
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (tab && tab[i])
+	{
+		free(tab[i]);
+		tab[i] = NULL;
+		i++;
+	}
+	free(tab);
 }

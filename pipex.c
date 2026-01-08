@@ -55,6 +55,7 @@ bool	load_valid_input(char **argv, t_data *data, char **env)
 		handle_error(argv[1]);
 	if (access(argv[4], W_OK) == -1)
 		handle_error(argv[4]);
+	return (true);
 }
 
 int	main(int argc, char **argv, char **env)
@@ -63,6 +64,9 @@ int	main(int argc, char **argv, char **env)
 
 	if (argc != 5)
 		return (1);
-	load_valid_input(argv, &data, env);
+	if (load_valid_input(argv, &data, env))
+	{
+		
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:44:23 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/06 10:49:45 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/09 15:39:02 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ char	*test_all_paths(char *command, char *pathline)
 				break ;
 			}
 			free(pathtested);
+			i++;
 		}
 	}
 	return (res);
@@ -112,7 +113,8 @@ char	*does_command_exists(char *command, char **env)
 		return (NULL);
 	pathline = find_path_line(env);
 	findaway = test_all_paths(pathcommand, pathline);
+	dprintf(2, "here2\n");
 	free(pathcommand);
-	free(pathline);
+	dprintf(2, "here3\n");
 	return (findaway);
 }

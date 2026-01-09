@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 08:50:59 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/06 16:21:41 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/09 15:29:09 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 # include <unistd.h>
 # include <errno.h>
 # include <stdio.h>
-# include "ft_printf/ft_printf.h"
+# include <fcntl.h>
+# include <sys/wait.h>
+//# include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
-# include "get_next_line/get_next_line.h"
+//# include "get_next_line/get_next_line.h"
 
 typedef struct s_data
 {

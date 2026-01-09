@@ -1,0 +1,15 @@
+total 60$
+drwxr-xr-x  6 emaigne 2025_paris   195 Jan  9 15:42 .$
+drwxr-xr-x 10 emaigne 2025_paris   134 Jan  6 11:29 ..$
+-rwxr-xr-x  1 emaigne 2025_paris 25152 Jan  9 15:42 a.out$
+-rw-r--r--  1 emaigne 2025_paris     2 Jan  6 16:30 file2$
+-rw-r--r--  1 emaigne 2025_paris  2904 Jan  9 15:39 find_command.c$
+drwxr-xr-x  4 emaigne 2025_paris   306 Jan  3 13:50 ft_printf$
+drwxr-xr-x  2 emaigne 2025_paris    81 Jan  3 15:06 get_next_line$
+drwxr-xr-x  8 emaigne 2025_paris   201 Jan  9 10:47 .git$
+drwxr-xr-x  3 emaigne 2025_paris  4096 Jan  9 14:26 libft$
+-rw-r--r--  1 emaigne 2025_paris   619 Jan  6 18:10 Makefile$
+-rw-r--r--  1 emaigne 2025_paris     0 Jan  9 15:42 out$
+-rw-r--r--  1 emaigne 2025_paris  4225 Jan  9 15:42 pipex.c$
+-rw-r--r--  1 emaigne 2025_paris  1427 Jan  9 15:29 pipex.h$
+-rw-r--r--  1 emaigne 2025_paris  1046 Jan  6 10:45 pipex_utils.c$

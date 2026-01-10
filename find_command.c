@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:44:23 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/09 17:22:10 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/10 02:36:20 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*find_path_line(char **env)
 {
-	char	*pathline;
 	char	*searched;
 	int		i;
 	int		j;
@@ -37,40 +36,40 @@ char	*find_path_line(char **env)
 	return (NULL);
 }
 
-static void	freetherest(char *path_to_test[6], int tosave)
-{
-	int	i;
+// static void	freetherest(char *path_to_test[6], int tosave)
+// {
+// 	int	i;
 
-	i = 0;
-	while (i < 6)
-	{
-		if (i != tosave && path_to_test[i])
-			free(path_to_test[i]);
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (i < 6)
+// 	{
+// 		if (i != tosave && path_to_test[i])
+// 			free(path_to_test[i]);
+// 		i++;
+// 	}
+// }
 
-static char	*test_usuals(char *command)
-{
-	char	*path_to_test[6];
-	int		i;
+// static char	*test_usuals(char *command)
+// {
+// 	char	*path_to_test[6];
+// 	int		i;
 
-	i = 0;
-	path_to_test[0] = ft_strjoin("/usr/local/sbin", command);
-	path_to_test[1] = ft_strjoin("/usr/local/bin", command);
-	path_to_test[2] = ft_strjoin("/usr/sbin", command);
-	path_to_test[3] = ft_strjoin("/usr/bin", command);
-	path_to_test[4] = ft_strjoin("/sbin", command);
-	path_to_test[5] = ft_strjoin("/bin", command);
-	while (i < 6)
-	{
-		if (path_to_test[i] && access(path_to_test[i], X_OK) == 0)
-			return (freetherest(path_to_test, i), path_to_test[i]);
-		i++;
-	}
-	freetherest(path_to_test, -1);
-	return (NULL);
-}
+// 	i = 0;
+// 	path_to_test[0] = ft_strjoin("/usr/local/sbin", command);
+// 	path_to_test[1] = ft_strjoin("/usr/local/bin", command);
+// 	path_to_test[2] = ft_strjoin("/usr/sbin", command);
+// 	path_to_test[3] = ft_strjoin("/usr/bin", command);
+// 	path_to_test[4] = ft_strjoin("/sbin", command);
+// 	path_to_test[5] = ft_strjoin("/bin", command);
+// 	while (i < 6)
+// 	{
+// 		if (path_to_test[i] && access(path_to_test[i], X_OK) == 0)
+// 			return (freetherest(path_to_test, i), path_to_test[i]);
+// 		i++;
+// 	}
+// 	freetherest(path_to_test, -1);
+// 	return (NULL);
+// }
 
 char	*test_all_paths(char *command, char *pathline)
 {
@@ -82,19 +81,20 @@ char	*test_all_paths(char *command, char *pathline)
 	i = 0;
 	res = NULL;
 	if (pathline == NULL)
-		res = test_usuals(command);
-	else
+		return (NULL);
+	if (access(command, X_OK) == 0)
+		return (command);
+
+	possiblepaths = ft_split(pathline, ':');
+	while (possiblepaths && possiblepaths[i])
 	{
-		possiblepaths = ft_split(pathline, ':');
-		while (possiblepaths && possiblepaths[i])
-		{
-			pathtested = ft_strjoin(possiblepaths[i], command);
-			if (pathtested && access(pathtested, X_OK) == 0)
-				return (clearmatrix(possiblepaths), pathtested);
-			free(pathtested);
-			i++;
-		}
+		pathtested = ft_strjoin(possiblepaths[i], command);
+		if (pathtested && access(pathtested, X_OK) == 0)
+			return (clearmatrix(possiblepaths), pathtested);
+		free(pathtested);
+		i++;
 	}
+	perror(command);
 	return (res);
 }
 
@@ -112,6 +112,5 @@ char	*find_command(char *command, char **env)
 	pathline = find_path_line(env);
 	findaway = test_all_paths(pathcommand, pathline);
 	free(pathcommand);
-	printf("If there is a path to said string here it is: %s\n", findaway);
 	return (findaway);
 }

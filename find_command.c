@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:44:23 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/13 12:11:41 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 15:43:10 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,15 @@ char	*find_command(char *command, char **env)
 	char	*pathcommand;
 
 	if (command == NULL)
+	{
+		if (!(access(command, F_OK) == 0))
+			perror("Permission denied");
 		return (NULL);
+	}
 	if (access(command, X_OK) == 0)
+	{
 		return (command);
+	}
 	pathcommand = ft_strjoin("/", command);
 	if (!pathcommand)
 		return (NULL);

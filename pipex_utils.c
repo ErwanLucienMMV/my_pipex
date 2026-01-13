@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:45:08 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/13 11:00:45 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 12:10:57 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	do_command(char *cmd, char **env)
 	new_cmd = find_command(splited_cmd[0], env);
 	if (!new_cmd)
 	{
-		perror("Getting the path cmd:");
 		clearmatrix(splited_cmd);
 		exit (1);
 	}

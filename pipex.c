@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 13:41:11 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/13 11:55:57 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 12:06:57 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ int	main(int argc, char **argv, char **env)
 			middle_exec(argv[i], env);
 		i++;
 	}
-	while (wait(NULL) > 0)
-		;
+	waitpid(-1, NULL, 0);
 	return (1);
 }

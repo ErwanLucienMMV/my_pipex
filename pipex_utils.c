@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:45:08 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/13 10:25:41 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 11:00:45 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	do_command(char *cmd, char **env)
 	exit(1);
 }
 
-void	handle_the_child(int pipe_fd[2],char *infile, char *cmd, char **env)
+void	handle_the_child(int pipe_fd[2], char *infile, char *cmd, char **env)
 {
 	int		fd;
 

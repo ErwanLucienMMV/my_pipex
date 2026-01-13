@@ -7,7 +7,7 @@ pipex.c
 NAME = pipex
 SRC_DIR = .
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 HEADER_FILE = pipex.h
 PATH_FT_PRINTF = ./ft_printf
 PATH_LIBFT = ./libft

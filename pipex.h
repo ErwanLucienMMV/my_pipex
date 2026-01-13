@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 08:50:59 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/13 06:58:37 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 10:02:11 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 //# include "get_next_line/get_next_line.h"
 
 void	clearmatrix(char **tab);
+void	do_command(char *cmd, char **env);
+void	handle_the_child(int pipe_fd[2], char *infile, char *cmd, char **env);
 char	*find_path_line(char **env);
 char	*test_all_paths(char *command, char *pathline);
 char	*find_command(char *command, char **env);

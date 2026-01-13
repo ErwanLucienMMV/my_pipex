@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:44:23 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/13 06:54:10 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 10:11:17 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,11 @@ char	*find_path_line(char **env)
 
 char	*test_all_paths(char *command, char *pathline)
 {
-	char	*res;
 	char	*pathtested;
 	char	**possiblepaths;
 	int		i;
 
 	i = 0;
-	res = NULL;
 	if (pathline == NULL)
 		return (NULL);
 	if (access(command, X_OK) == 0)
@@ -93,8 +91,9 @@ char	*test_all_paths(char *command, char *pathline)
 		free(pathtested);
 		i++;
 	}
+	clearmatrix(possiblepaths);
 	perror(command);
-	return (res);
+	return (NULL);
 }
 
 char	*find_command(char *command, char **env)

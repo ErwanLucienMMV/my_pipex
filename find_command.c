@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:44:23 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/10 02:36:20 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 06:54:10 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ char	*test_all_paths(char *command, char *pathline)
 		return (NULL);
 	if (access(command, X_OK) == 0)
 		return (command);
-
 	possiblepaths = ft_split(pathline, ':');
 	while (possiblepaths && possiblepaths[i])
 	{
@@ -106,6 +105,8 @@ char	*find_command(char *command, char **env)
 
 	if (command == NULL)
 		return (NULL);
+	if (access(command, X_OK) == 0)
+		return (command);
 	pathcommand = ft_strjoin("/", command);
 	if (!pathcommand)
 		return (NULL);

@@ -1,7 +1,7 @@
-void ft_exec(char *cmd, char **env)
+void	ft_exec(char *cmd, char **env)
 {
-	char 	**splited_cmd;
-	char 	*new_cmd;
+	char	**splited_cmd;
+	char	*new_cmd;
 
 	splited_cmd = ft_split(cmd, ' ');
 	if (!splited_cmd)
@@ -16,7 +16,6 @@ void ft_exec(char *cmd, char **env)
 		ft_free_tab(splited_cmd);
 		exit (1);
 	}
-	
 	if (execve(new_cmd, splited_cmd, env))
 	{
 		perror("execve");
@@ -25,9 +24,9 @@ void ft_exec(char *cmd, char **env)
 		exit(1);
 	}
 }
-void end_exec(char *outfile , char *cmd, char **env)
+void	end_exec(char *outfile , char *cmd, char **env)
 {
-	pid_t 	pid;
+	pid_t	pid;
 	int 	fd;
 
 	pid = fork();
@@ -129,35 +128,35 @@ void first_exec(char *infile , char *cmd, char **env)
 	}
 }
 
-int check_args(int ac)
-{
-	if (ac < 5)
-	{
-		write(2, "Pipex need 5 args\n", 19);
-		return (0);
-	}
-	return (1)
-}
+// int check_args(int ac)
+// {
+// 	if (ac < 5)
+// 	{
+// 		write(2, "Pipex need 5 args\n", 19);
+// 		return (0);
+// 	}
+// 	return (1)
+// }
 
-int main(int ac, char **av, char **env)
-{
-	int 	i;
-	int 	pipe_fd[2];
-	pid_t 	pid;
+// int main(int ac, char **av, char **env)
+// {
+// 	int 	i;
+// 	int 	pipe_fd[2];
+// 	pid_t 	pid;
 
-	i = 2;
-	if (check_args(ac))
-		return (1);
-	while (i < ac)
-	{
-		if (i == 2)
-			first_exec(av[1] , av[2], env);
-		else if (i == ac - 1)
-			end_exec(av[ac], av[ac - 1], env);
-		else
-			middle_exec(av[i], env);
-		i++;
-	}
-	wait(-1);
-	return (1);
-}
+// 	i = 2;
+// 	if (check_args(ac))
+// 		return (1);
+// 	while (i < ac)
+// 	{
+// 		if (i == 2)
+// 			first_exec(av[1] , av[2], env);
+// 		else if (i == ac - 1)
+// 			end_exec(av[ac], av[ac - 1], env);
+// 		else
+// 			middle_exec(av[i], env);
+// 		i++;
+// 	}
+// 	wait(-1);
+// 	return (1);
+// }

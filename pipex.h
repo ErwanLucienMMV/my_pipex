@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 08:50:59 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/13 10:02:11 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 11:21:18 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <sys/wait.h>
-# include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
-//# include "get_next_line/get_next_line.h"
 
 void	clearmatrix(char **tab);
 void	do_command(char *cmd, char **env);

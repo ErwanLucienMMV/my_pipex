@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:44:23 by emaigne           #+#    #+#             */
-/*   Updated: 2026/01/13 10:11:17 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/01/13 11:22:00 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,41 +35,6 @@ char	*find_path_line(char **env)
 	}
 	return (NULL);
 }
-
-// static void	freetherest(char *path_to_test[6], int tosave)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i < 6)
-// 	{
-// 		if (i != tosave && path_to_test[i])
-// 			free(path_to_test[i]);
-// 		i++;
-// 	}
-// }
-
-// static char	*test_usuals(char *command)
-// {
-// 	char	*path_to_test[6];
-// 	int		i;
-
-// 	i = 0;
-// 	path_to_test[0] = ft_strjoin("/usr/local/sbin", command);
-// 	path_to_test[1] = ft_strjoin("/usr/local/bin", command);
-// 	path_to_test[2] = ft_strjoin("/usr/sbin", command);
-// 	path_to_test[3] = ft_strjoin("/usr/bin", command);
-// 	path_to_test[4] = ft_strjoin("/sbin", command);
-// 	path_to_test[5] = ft_strjoin("/bin", command);
-// 	while (i < 6)
-// 	{
-// 		if (path_to_test[i] && access(path_to_test[i], X_OK) == 0)
-// 			return (freetherest(path_to_test, i), path_to_test[i]);
-// 		i++;
-// 	}
-// 	freetherest(path_to_test, -1);
-// 	return (NULL);
-// }
 
 char	*test_all_paths(char *command, char *pathline)
 {
